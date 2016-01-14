@@ -1,0 +1,171 @@
+
+<div class="header-container header-style-2">
+    <div class="header">
+		<div class="header-inner">
+			<div class="header-top">
+
+			</div>
+			
+			<?php echo $this->getChildHtml('customer_form_mini_login'); ?>
+			
+			<div class="header-bottom">
+				<div class="yt-menu">
+					<div class="menu-under">
+						<div class="container">
+							<div class="content-header-bottom">
+								<div class="logo-wrapper">
+									<h1 class="logo">
+										<strong><?php echo $this->getLogoAlt() ?></strong>
+										<a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo">
+											<img src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" />
+										</a>
+										
+										<?php 
+											$logoSmall_src =   Mage::getStoreConfig('design/header/logo_src_small');
+											$src = $this->getSkinUrl().$logoSmall_src;
+										?>
+										
+										<a class="logo-small" href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>">
+											<img src="<?php echo $src; ?>" alt="<?php echo $this->getLogoAlt() ?>" />
+										</a>
+									</h1>
+								</div>
+								
+								<div class="navigation-action">
+									<div class="menu-larger">
+										<div class="row">
+										<?php if( $var_yttheme->getParam('menustyle')=='mega' ){ ?>
+											<div class="col-lg-12 col-md-12">
+												<?php echo $this->getChildHtml('megaMenu'); ?>
+											</div>
+										<?php } else { ?>
+											<div class="col-lg-12 col-md-12">
+												<?php echo $this->getChildHtml('topMenu'); ?>
+											</div>
+										<?php } ?>
+										</div>
+									</div>
+									
+									<div class="mobile-menu">
+										<div class="row">
+											<div class="col-lg-12 col-md-12">
+												<?php echo $this->getChildHtml('catalog.topmobinav'); ?>
+											</div>
+										</div>
+									</div>
+									
+									<div class="header-bottom-right">
+										<div class="btn-action-header">
+											<a title="<?php echo $this->__('Navigation')?>" href="javascript:void(0)" class="nav-btn-header"><span class="hidden"><?php echo $this->__('Navigation')?></span></a>
+										</div>
+										
+										<div class="navigation-fixed">
+											<a class="close-navigation-fixed" href="javascript:void(0)" title="<?php echo $this->__('Close')?>"><span class="hidden"><?php echo $this->__('Close')?></span></a>
+											<div class="fixed-content">
+												<ul class="links-second">
+													<li>
+														<a class="myaccount-link" href="<?php echo $this->getUrl('customer/account')?>" title="<?php echo $this->__('My Account');?>"><?php echo $this->__('My Account');?></a>
+													</li>
+												</ul>
+												
+												<?php echo $this->getChildHtml('topLinks') ?>
+												
+												<ul class="links-second">
+													<?php if(!$this->helper('customer')->isLoggedIn()){?>
+														<li>
+															<a class="popup-login btn-login-header" data-toggle="modal" data-target="#modal-login" title="<?php echo $this->__('Login')?>"><?php echo $this->__('Login')?></a>
+															<a class="mobile-login btn-login-header" href="<?php echo $this->getUrl('customer/account/login')?>" title="<?php echo $this->__('Login')?>"><?php echo $this->__('Login')?></a>
+														</li>
+														
+														<li>
+															<a class="btn-register" href="<?php echo $this->getUrl('customer/account/create')?>" title="<?php echo $this->__('Register')?>"><?php echo $this->__('Register')?></a>
+														</li>
+													
+													
+													<?php } else {?>
+														<li>
+															<a class="btn-login-header" href="<?php echo $this->getUrl('customer/account/logout')?>" title="<?php echo $this->__('Logout');?>"><?php echo $this->__('Logout');?></a>
+														</li>
+													<?php }?>
+												</ul>
+												
+												<?php echo $this->getChildHtml('store_language') ?>
+												
+												<?php echo $this->getChildHtml('currency') ?>
+												
+												
+											</div>
+										</div>
+										
+										<div class="minicart-header">
+											<?php echo $this->getChildHtml('mini-cartpro'); ?>
+										</div>
+										
+										<div class="search-header-bottom">
+											<div class="search-header-content">
+												<a href="javascript:void(0)" title="<?php echo $this->__('Search')?>" class="btn-search"><span class="hidden"><?php echo $this->__('Search')?></span></a>
+												
+												<div class="search-form-action">
+													<?php echo $this->getChildHtml('topSearch'); ?>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+		</div>
+        <?php echo $this->getChildHtml('topContainer'); ?>
+    </div>
+</div>
+
+<script>
+	jQuery(document).ready(function($){ 
+		$( ".btn-search" ).click(function() {
+			$(this).toggleClass('clicked');
+			if($( ".btn-search" ).hasClass('clicked')){
+				$(this).attr('title', '<?php echo $this->__('Close')?>');
+			} else{
+				$(this).attr('title', '<?php echo $this->__('Search')?>');
+			}
+			$('.search-header-content').toggleClass('show-block');
+			$('.sm_megamenu_wrapper_horizontal_menu .sm_megamenu_menu').toggleClass('hidden-block');
+		});
+		
+		$( ".nav-btn-header, .close-navigation-fixed" ).click(function() {
+			$('body').toggleClass('show-navigation-header')
+		});
+	});
+	
+	
+	
+	
+</script>
+
+<?php if($config->getGeneral('menu_ontop') == 1){ ?>
+	<script>
+		jQuery(document).ready(function($){ 
+			$window = $(window);
+			if($('.header-bottom').length){
+				menu_offset_top = $('.header-bottom').height();
+				function processScroll() {
+					var scrollTop = $window.scrollTop();
+					if ( scrollTop >= 80) {
+						$('.header-bottom').addClass('menu-on-top');
+					} else if (scrollTop <= menu_offset_top) {
+						$('.header-bottom').removeClass('menu-on-top');
+					}
+				}
+				processScroll();
+				$window.scroll(function(){
+					processScroll();
+				});
+			}
+		});
+	</script>
+<?php } ?>

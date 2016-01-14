@@ -1,0 +1,162 @@
+.footer{
+  background-color: #222222;
+  color: #999999;
+  padding-top:40px;
+
+  a{
+    color: #999999;
+  }
+
+  .footer-top,
+  .footer-middle{
+    text-align: center;
+  }
+
+  .footer-top{
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding-bottom: 23px;
+
+    .about-us-footer{
+      margin-bottom: 25px;
+
+      img{
+        margin-bottom: 15px;
+      }
+    }
+
+    .social-footer{
+      margin-bottom: 25px;
+
+      .socials-wrap{
+        .title-follow{
+          display: none;
+        }
+
+        ul{
+          margin:0;
+
+          li{
+            display: inline-block;
+            margin:0 4px;
+
+            a{
+              display: inline-block;
+              width: 50px;
+              height: 50px;
+              text-align: center;
+              line-height: 50px;
+              .border_radius(50%);
+              border:1px solid #999;
+              font-size: 20px;
+              .transition(.2s);
+
+              &:hover{
+                background-color: @color_theme;
+                border-color: @color_theme;
+                color: #fff;
+              }
+
+              .name-social{
+                display: none;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .support-footer{
+      .list-support{
+        margin:0;
+
+        li{
+          display: inline-block;
+          padding:0 15px;
+          position: relative;
+
+          &:before{
+            width: 1px;
+            height: 11px;
+            background-color: #999;
+            display: inline-block;
+            content: "";
+            position: absolute;
+            right: -3px;
+            top:50%;
+            margin-top: -6px;
+          }
+
+          &:last-child{
+            &:before{
+              display: none;
+            }
+          }
+
+          a{
+            font-size: 107.69%;
+            font-weight: 700;
+            text-transform: uppercase;
+          }
+        }
+      }
+    }
+  }
+
+  .footer-middle{
+    padding:24px 0;
+
+    .list-categories{
+      li{
+        display: inline-block;
+        font-size: 84.61%;
+        padding: 0 5px;
+        position: relative;
+
+        &:before{
+          width: 1px;
+          height: 9px;
+          background-color: #999;
+          display: inline-block;
+          content: "";
+          position: absolute;
+          right: -2px;
+          top:50%;
+          margin-top: -4px;
+        }
+
+        &:last-child{
+          &:before{
+            display: none;
+          }
+        }
+
+        &.category-name{
+          font-weight: 700;
+          padding:0;
+
+          &:before{
+            display: none;
+          }
+        }
+
+        a{
+
+        }
+      }
+    }
+  }
+
+  .copyright{
+    background-color: #111111;
+    padding:14px 0 11px;
+
+    .copyright-footer{
+      margin-top: 3px;
+      font-size: 92.3%;
+    }
+
+    .payment-footer{
+      text-align: right;
+    }
+  }
+}

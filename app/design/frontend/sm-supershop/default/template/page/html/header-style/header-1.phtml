@@ -1,0 +1,188 @@
+
+<div class="header-container header-style-1">
+    <div class="header">
+		<div class="header-inner">
+			<div class="promotion-top">
+				<div class="header-promotion">
+					<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('header-promotion')->toHtml(); ?>
+				</div>
+				<a class="close-promotion" id="close-posmotion-header" href="javascript:void(0)" title="<?php echo $this->__('Close')?>"><span class="hidden"><?php echo $this->__('Close')?></span></a>
+			</div>
+			
+			<div class="header-top">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-6 col-md-5 header-topleft">
+							<div class="topleft-content">
+								<?php echo $this->getChildHtml('welcome') ?> <?php echo $this->getAdditionalHtml() ?>
+								<?php if(!$this->helper('customer')->isLoggedIn()){?>
+								<?php echo $this->__('your can')?> 
+									<a class="popup-login" data-toggle="modal" data-target="#modal-login" title="<?php echo $this->__('Login')?>"><?php echo $this->__('Login')?></a> 
+									<a class="mobile-login" href="<?php echo $this->getUrl('customer/account/login')?>" title="<?php echo $this->__('Login')?>"><?php echo $this->__('Login')?></a>
+									<?php echo $this->__('or')?> 
+									<a href="<?php echo $this->getUrl('customer/account/create')?>" title="<?php echo $this->__('Create an account')?>"><?php echo $this->__('Create an account')?></a>
+								<?php } else {?>
+									<a href="<?php echo $this->getUrl('customer/account/logout')?>" title="<?php echo $this->__('Logout');?>"><?php echo $this->__('Logout');?></a>
+								<?php }?>
+							</div>
+						</div>
+						
+						<div class="col-lg-6 col-md-7 header-topright">
+							<?php echo $this->getChildHtml('currency') ?>
+							<?php echo $this->getChildHtml('store_language') ?>
+							<div class="dropdown-block block-base">
+								<?php echo $this->getChildHtml('topLinks') ?>
+							</div>
+							
+							<div class="dropdown-block block-myacount">
+								<div class="account-links">
+									<div class="dropdown-toggle">
+										<a class="myaccount-link" href="<?php echo $this->getUrl('customer/account')?>" title="<?php echo $this->__('My Account');?>"><?php echo $this->__('My Account');?></a>
+									</div>
+
+									<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('dropdown-my-account')->toHtml(); ?>
+								</div>
+								
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<?php echo $this->getChildHtml('customer_form_mini_login'); ?>
+			
+			<div class="header-bottom">
+				<div class="yt-menu">
+					<div class="menu-under">
+						<div class="container">
+							<div class="content-header-bottom">
+								<div class="logo-wrapper">
+									<h1 class="logo">
+										<strong><?php echo $this->getLogoAlt() ?></strong>
+										<a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo">
+											<img src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" />
+										</a>
+										
+										<?php 
+											$logoSmall_src =   Mage::getStoreConfig('design/header/logo_src_small');
+											$src = $this->getSkinUrl().$logoSmall_src;
+										?>
+										
+										<a class="logo-small" href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>">
+											<img src="<?php echo $src; ?>" alt="<?php echo $this->getLogoAlt() ?>" />
+										</a>
+									</h1>
+								</div>
+								
+								<div class="navigation-action">
+									<div class="menu-larger">
+										<div class="row">
+										<?php if( $var_yttheme->getParam('menustyle')=='mega' ){ ?>
+											<div class="col-lg-12 col-md-12">
+												<?php echo $this->getChildHtml('megaMenu'); ?>
+											</div>
+										<?php } else { ?>
+											<div class="col-lg-12 col-md-12">
+												<?php echo $this->getChildHtml('topMenu'); ?>
+											</div>
+										<?php } ?>
+										</div>
+									</div>
+									
+									<div class="mobile-menu">
+										<div class="container">
+											<div class="row">
+												<div class="col-lg-12 col-md-12">
+													<?php echo $this->getChildHtml('catalog.topmobinav'); ?>
+												</div>
+											</div>
+										</div>
+									</div>
+									
+									<div class="header-bottom-right">
+										<div class="minicart-header">
+											<?php echo $this->getChildHtml('mini-cartpro'); ?>
+										</div>
+										
+										<div class="search-header-bottom">
+											<div class="search-header-content">
+												<a href="javascript:void(0)" title="<?php echo $this->__('Search')?>" class="btn-search"><span class="hidden"><?php echo $this->__('Search')?></span></a>
+												
+												<div class="search-form-action">
+													<?php echo $this->getChildHtml('topSearch'); ?>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+		</div>
+        <?php echo $this->getChildHtml('topContainer'); ?>
+    </div>
+</div>
+
+<script>
+	jQuery(document).ready(function($){ 
+		$( ".btn-search" ).click(function() {
+			$(this).toggleClass('clicked');
+			if($( ".btn-search" ).hasClass('clicked')){
+				$(this).attr('title', '<?php echo $this->__('Close')?>');
+			} else{
+				$(this).attr('title', '<?php echo $this->__('Search')?>');
+			}
+			$('.search-header-content').toggleClass('show-block');
+			$('.sm_megamenu_wrapper_horizontal_menu .sm_megamenu_menu').toggleClass('hidden-block');
+		});
+		
+		$( "#close-posmotion-header" ).click(function() {
+			$('.promotion-top').toggleClass('hidden-promotion');
+			$('body').toggleClass('hidden-promotion-body');
+
+			if($(".promotion-top").hasClass("hidden-promotion")){
+				$.cookie("open", 0);
+				
+			} else{
+				$.cookie("open", 1);
+			}
+
+		});
+		
+		
+	});
+	
+	$c = jQuery.noConflict();
+	
+	if($c.cookie("open") == 0){
+		$c('.promotion-top').addClass('hidden-promotion');
+		$c('body').addClass('hidden-promotion-body');
+	}
+</script>
+
+<?php if($config->getGeneral('menu_ontop') == 1){ ?>
+	<script>
+		jQuery(document).ready(function($){ 
+			$window = $(window);
+			if($('.menu-under').length){
+				menu_offset_top = $('.menu-under').offset().top;
+				function processScroll() {
+					var scrollTop = $window.scrollTop();
+					if ( scrollTop >= menu_offset_top) {
+						$('.menu-under').addClass('menu-on-top');
+					} else if (scrollTop <= menu_offset_top) {
+						$('.menu-under').removeClass('menu-on-top');
+					}
+				}
+				processScroll();
+				$window.scroll(function(){
+					processScroll();
+				});
+			}
+		});
+	</script>
+<?php } ?>

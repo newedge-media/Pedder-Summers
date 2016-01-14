@@ -1,0 +1,203 @@
+<?xml version="1.0"?>
+<root>
+  <pages>
+    <cms_page>
+      <title>Supershop - Responsive Magento Theme for Multipurpose</title>
+      <root_template>one_column</root_template>
+      <identifier>home-demo-01</identifier>
+      <content_heading></content_heading>
+      <content><![CDATA[<div class="home-default homestyle1">
+	<div class="wow fadeInUp">
+		<div class="static-image-1">
+			{{block type="cms/block" block_id="static-image-1"}}
+		</div>
+	</div>
+	
+	<div class="wow fadeInUp">
+		<div class="slider-basic-wrapper box-content">
+			{{block type="basicproducts/list" name="basicproducts.slider.home" template="sm/basicproducts/basic-slider-home.phtml"}}
+		</div>
+	</div>
+	
+	<div class="wow fadeInUp">
+		<div class="box-content listingtab-wrapper">
+			{{block type="listingtabs/list" name="listingtabs.list.default" template="sm/listingtabs/default.phtml"}}
+		</div>
+	</div>
+	
+	<div class="wow fadeInUp">
+		<div class="full-wrapper full-wrapper-image center">
+			<div class="full-content">
+				{{block type="cms/block" block_id="static-image-2"}}
+			</div>
+		</div>
+	</div>
+	
+	<div class="wow fadeInUp">
+		<div class="box-content listingtab-wrapper">
+			{{block type="listingtabs/list" name="listingtabs.list.default" template="sm/listingtabs/default.phtml"
+				listingtabs_title_text="Bed Room" 
+				product_category="241,242,243,244,245,246,247,248,249"
+			}}
+		</div>
+	</div>
+	
+	<div class="wow fadeInUp">
+		<div class="full-wrapper full-wrapper-custom center">
+			<div class="full-content">
+				{{block type="custom/list" template="sm/custom/default.phtml"}}
+			</div>
+		</div>
+	</div>
+	
+	<div class="wow fadeInUp">
+		<div class="full-wrapper full-block box-content latest-post-wrapper">
+			<div class="container">
+				<div class="slider-latest-blog">
+					{{block type="blog/blog" name="latest_post" template="aw_blog/latest-post.phtml"}}
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="wow fadeInUp">
+		<div class="full-wrapper full-wrapper-counter">
+			<div class="container">
+				{{block type="cms/block" block_id="counter-block"}}
+			</div>
+		</div>
+	</div>
+	
+	<div class="wow fadeInUp">
+		<div class="full-wrapper full-block box-content contact-full">
+			<div class="container">
+				{{block type="cms/block" block_id="contact-homepage"}}
+			</div>
+		</div>
+	</div>
+	
+	<div class="wow fadeInUp">
+		<div class="brand-wrapper">
+			{{block type="cms/block" block_id="brand-block"}}
+		</div>
+	</div>
+	
+</div>]]></content>
+      <is_active>1</is_active>
+      <layout_update_xml><![CDATA[<reference name="full_top">
+	<block type="sm_cameraslider/slide_preview" name="sm_cameraslide" as="cameraslide" ></block>
+</reference>]]></layout_update_xml>
+      <store_id>0</store_id>
+    </cms_page>
+    <cms_page>
+      <title>Supershop - Responsive Magento Theme for Multipurpose</title>
+      <root_template>one_column</root_template>
+      <identifier>home-demo-02</identifier>
+      <content_heading></content_heading>
+      <content><![CDATA[<div class="home-default homestyle2">
+	<div class="row">
+		<div class="col-lg-3 col-md-3 col-sidebar-home">
+			<div class="wow bounceInLeft">
+				{{block type="megamenu/list" template="sm/megamenu/megamenu-vertical.phtml"
+					title="Categories" 
+					group_id="5" 
+					theme="2"
+				}}
+			</div>
+			
+			<div class="wow bounceInLeft">
+				{{block type="newsletter/subscribe" template="newsletter/subscribe.phtml"}}
+			</div>
+			
+			<div class="wow bounceInLeft">
+			{{block type="blog/blog" name="latest_post" template="aw_blog/latest-post-index2.phtml"}}
+			</div>
+			
+			<div class="wow bounceInLeft">
+				{{block type="cms/block" block_id="static-image-4"}}
+			</div>
+			
+			<div class="wow bounceInLeft">
+				{{block type="twitterslider/list" template="sm/twitterslider/default.phtml"}}
+			</div>
+			
+			<div class="wow bounceInLeft">
+				{{block type="instagramgallery/instagramusers_viewlist" name="instagramgallery" as="instagramgallery"}}
+			</div>
+			
+			<div class="wow bounceInLeft">
+				{{block type="cms/block" block_id="what-client-say"}}
+			</div>
+		</div>
+		
+		<div class="col-lg-9 col-md-9 col-main-home">
+			<div class="wow bounceInRight">
+				<div class="slider-basic-wrapper box-content">
+					{{block type="basicproducts/list" name="basicproducts.slider.home" template="sm/basicproducts/basic-slider-home.phtml"}}
+				</div>
+			</div>
+			
+			<div class="wow bounceInRight">
+				<div class="box-content listingtab-wrapper">
+					{{block type="listingtabs/list" name="listingtabs.list.default" template="sm/listingtabs/default_index2.phtml"}}
+				</div>
+			</div>
+			
+			<div class="wow bounceInRight">
+				<div class="box-content listingtab-wrapper">
+					{{block type="listingtabs/list" name="listingtabs.list.default" template="sm/listingtabs/default_index2.phtml"
+						listingtabs_title_text="Bed Room" 
+						product_category="241,242,243,244,246"
+					}}
+				</div>
+			</div>
+			
+			<div class="wow bounceInRight">
+				<div class="static-iamge-3">
+					{{block type="cms/block" block_id="static-image-3"}}
+				</div>
+			</div>
+			
+			<div class="wow bounceInRight">
+				<div class="slider-deal-home">
+					{{block type="deal/list" name="deal.list.default" template="sm/deal/slider-deal.phtml"}}
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="wow fadeInUp">
+		<div class="full-wrapper full-wrapper-counter">
+			<div class="container">
+				{{block type="cms/block" block_id="counter-block"}}
+			</div>
+		</div>
+	</div>
+	
+	<div class="wow fadeInUp">
+		<div class="full-wrapper full-block box-content contact-full">
+			<div class="container">
+				{{block type="cms/block" block_id="contact-homepage"}}
+			</div>
+		</div>
+	</div>
+	
+	<div class="wow fadeInUp">
+		<div class="brand-wrapper">
+			{{block type="cms/block" block_id="brand-block"}}
+		</div>
+	</div>
+	
+</div>]]></content>
+      <is_active>1</is_active>
+      <layout_update_xml><![CDATA[<reference name="full_top">
+	<block type="sm_cameraslider/slide_preview" name="sm_cameraslide" as="cameraslide" ></block>
+
+        <block type="cms/block" name="static-categories">
+		<action method="setBlockId"><block_id>static-categories</block_id></action>
+	</block>
+</reference>]]></layout_update_xml>
+      <store_id>0</store_id>
+    </cms_page>
+  </pages>
+</root>
